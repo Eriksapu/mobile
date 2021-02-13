@@ -6,7 +6,7 @@ class Styles {
     fontWeight: FontWeight.w600,
   );
 
-  static const chartLabelsTexStyle = TextStyle(
+  static const chartLabelsTextStyle = TextStyle(
     color: Colors.grey,
     fontSize: 14.0,
     fontWeight: FontWeight.w500,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prakerin/config/styles.dart';
 
 class CountryDropdown extends StatelessWidget {
   final List<String> countries;
@@ -11,6 +10,7 @@ class CountryDropdown extends StatelessWidget {
     @required this.country,
     @required this.onChanged,
   });
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,26 +23,30 @@ class CountryDropdown extends StatelessWidget {
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
           value: country,
-          items: countries.map((e) => DropdownMenuItem(
-                child: Row(
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 12.0,
-                      child: Image.asset(
-                        'assets/images/${e.toLowerCase()}|_flag.png',
-                      ),
+          items: countries
+              .map((e) => DropdownMenuItem(
+                    child: Row(
+                      children: <Widget>[
+                        CircleAvatar(
+                          radius: 12.0,
+                          child: Image.asset(
+                            'assets/images/${e.toLowerCase()}_flag.png',
+                          ),
+                        ),
+                        const SizedBox(width: 8.0),
+                        Text(
+                          e,
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
                     ),
-                    const SizedBox(width: 8.0),
-                    Text(
-                      e,
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    )
-                  ],
-                ),
-              )),
+                    value: e,
+                  ))
+              .toList(),
+          onChanged: onChanged,
         ),
       ),
     );
