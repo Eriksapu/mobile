@@ -5,83 +5,92 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   List<Color> colors = [
     Colors.yellow,
-    Colors.white,
+    Colors.blueAccent,
+    Colors.redAccent,
+    Colors.greenAccent,
+    Colors.blueAccent,
+    Colors.grey,
+    Colors.blueGrey,
   ];
-  List<String> nama = [
-    'IMAGE',
-    'Batagor Makanan Khas Bandung',
-  ];
-  List<Color> col = [
-    Colors.purple,
-    Colors.yellow,
-    Colors.blue,
-  ];
-  List<String> nama1 = [
-    'image',
-    'image',
-    'image',
-  ];
-  List<Color> warna = [
-    Colors.green,
-    Colors.blue,
-    Colors.red,
-    Colors.purple,
-  ];
-
   @override
   Widget build(BuildContext context) {
-    final title = 'Nyobain ListView';
     return MaterialApp(
-      title: title,
+      debugShowCheckedModeBanner: false,
+      title: 'First App',
       home: Scaffold(
+        //backgroundColor: Colors.purpleAccent,
+        appBar: AppBar(
+          title: Text('Welcome to jungle'),
+          backgroundColor: Colors.blue,
+        ),
         body: SafeArea(
           child: SingleChildScrollView(
             child: Container(
               child: Column(children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Container(
+                      height: 300,
+                      width: 170,
+                      padding: EdgeInsets.all(5),
+                      margin: EdgeInsets.all(5),
+                      decoration: BoxDecoration(color: Colors.grey),
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/img/1.jpg',
+                            height: 250,
+                            width: 150,
+                          ),
+                          Text(
+                            'Menu Pertama',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 300,
+                      width: 160,
+                      padding: EdgeInsets.all(5),
+                      margin: EdgeInsets.all(5),
+                      decoration: BoxDecoration(color: Colors.grey),
+                      child: Column(
+                        children: <Widget>[
+                          Image.asset(
+                            'assets/img/2.jpg',
+                            height: 250,
+                            width: 150,
+                          ),
+                          Text(
+                            'Menu Kedua',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
                 Container(
-                  height: 200,
-                  width: 200,
+                  height: 280,
                   child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
                       itemCount: colors.length,
                       itemBuilder: (context, index) {
                         return Container(
                           margin: new EdgeInsets.all(2),
-                          width: 180,
-                          height: 150,
-                          color: colors[index],
-                          child: Center(
-                            child: Text(nama[index]),
-                          ),
-                        );
-                      }),
-                ),
-                Container(
-                  height: 290,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: warna.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: new EdgeInsets.all(7),
-                          width: 75,
+                          width: 150,
                           height: 100,
-                          color: warna[index],
-                        );
-                      }),
-                ),
-                Container(
-                  height: 80,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: col.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: new EdgeInsets.all(5),
-                          width: 115,
-                          height: 80,
-                          color: col[index],
-                          child: Center(
-                            child: Text(nama1[index]),
+                          color: colors[index],
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           ),
                         );
                       }),
